@@ -39,11 +39,12 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Fecha Alquiler</th>
-                            <th>Hora de Inicio</th>
-                            <th>Hora Final</th>
-                            <th>Usuario</th>
+                            <th>Nombre</th>
                             <th>Placa</th>
+                            <th>Fecha Inicio</th>
+                            <th>Hora Inicio</th>
+                            <th>Fecha Final</th>
+                            <th>Hora Final</th>
                         </tr>
                     </thead>
                     <tbody>

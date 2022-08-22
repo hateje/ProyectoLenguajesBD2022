@@ -117,7 +117,7 @@
    {    
        $instancia = AbrirBaseDatos();
        $mi_cursor = oci_new_cursor($instancia);
-       $lista = oci_parse($instancia, 'BEGIN getAlquileres(:cursbv); END;');
+       $lista = oci_parse($instancia, 'BEGIN getAlquileresLegibles(:cursbv); END;');
        oci_bind_by_name($lista, ":cursbv", $mi_cursor, -1, OCI_B_CURSOR);
        
        oci_execute($lista);
