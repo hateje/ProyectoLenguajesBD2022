@@ -45,10 +45,8 @@ VALUES ('Jose', 'Lopez','Varquero', 'jlopez@gmail.com', '741', '39856');
 --******************************
 --* Inserts para Tipo_Vehiculo *
 --******************************
-INSERT INTO tipo_vehiculo  VALUES ('Bote');
-INSERT INTO tipo_vehiculo  VALUES ('Jetski');
-
-
+INSERT INTO tipo_vehiculo(tipo)  VALUES ('Bote');
+INSERT INTO tipo_vehiculo(tipo)  VALUES ('Jetski');
 
 --*************************
 --* Inserts para Vehiculo *
