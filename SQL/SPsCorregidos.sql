@@ -3,7 +3,8 @@ Create or replace procedure getCapitanesLegibles (mi_cursor out SYS_REFCURSOR)
  as
     begin
         open mi_cursor for
-            select capitan.capitanid, primernombre || ' ' || primerapellido, segundoapellido,email,contrasena,telefono,capitan.capitanid,numlicencia,fechacontratacion from capitan
+            select capitan.capitanid, primernombre || ' ' || primerapellido || ' ' || segundoapellido, email, contrasena, telefono, numlicencia, fechacontratacion 
+            from capitan
                 inner join usuario
                 on capitan.capitanid = usuario.capitanid;
     end;
