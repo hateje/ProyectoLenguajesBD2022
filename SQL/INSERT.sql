@@ -1,46 +1,96 @@
-INSERT INTO usuario  VALUES (1, 'Alejandro', 'Antonio','Solis','Varquero', 'alejandrosoli@gmail.com', '123', '123456');
-INSERT INTO usuario  VALUES (2, 'Juan', 'Carlos','Alvarado','Vasquez', 'jucaralva@gmail.com', '321', '789456');
-INSERT INTO usuario  VALUES (3, 'Jean', 'Paul','Hernandez','Velluti', 'jeanvellu@gmail.com', '456', '456123');
-INSERT INTO usuario  VALUES (4, 'Jessica', 'Margaret','Murillo','Rocha', 'jessro@gmail.com', '789', '123456');
-INSERT INTO usuario  VALUES (5, 'Ilani', 'Daniela','Rocha','Arguello', 'ilada@gmail.com', '987', '123456');
-INSERT INTO usuario  VALUES (6, 'Jimena', 'Arvencha','Estrada','Lopez', 'jimeestrada@gmail.com', '654', '69871');
-INSERT INTO usuario  VALUES (7, 'Cristiano', 'Ronaldo','Dos Santos','Aveiro', 'cr7@gmail.com', '147', '123456');
-INSERT INTO usuario  VALUES (8, 'Lionel', 'Andres','Messi','Cuccittini', 'liomessi@gmail.com', '258', '65789');
-INSERT INTO usuario  VALUES (9, 'Jose', 'Luis','Hernandez','Luna', 'joseLuna@gmail.com', '369', '42581');
-INSERT INTO usuario  VALUES (10, 'Luis', 'Agustin','Navarro','Murillo', 'luisnava@gmail.com', '963', '32596');
-INSERT INTO usuario  VALUES (11, 'Randy', 'Antonio','Perez','Brenes', 'randybre@gmail.com', '852', '75841');
-INSERT INTO usuario  VALUES (12, 'Jose', 'David','Lopez','Varquero', 'macho@gmail.com', '741', '39856');
---Vehiculo
-INSERT INTO vehiculo  VALUES (1);
-INSERT INTO vehiculo  VALUES (2);
-INSERT INTO vehiculo  VALUES (3);
-INSERT INTO vehiculo  VALUES (4);
+--************************
+--* Inserts para Capitan *
+--************************
+INSERT INTO capitan (numlicencia,fechacontratacion)  VALUES (1111, TO_DATE('05/03/2003', 'mm/dd/yyyy'));
+INSERT INTO capitan (numlicencia,fechacontratacion)  VALUES (2222, TO_DATE('06/14/1997', 'mm/dd/yyyy'));
+INSERT INTO capitan (numlicencia,fechacontratacion)  VALUES (3333, TO_DATE('06/25/1991', 'mm/dd/yyyy'));
+INSERT INTO capitan (numlicencia,fechacontratacion)  VALUES (4444, TO_DATE('07/30/1992', 'mm/dd/yyyy'));
+
+--************************
+--* Inserts para Usuario *
+--************************
+INSERT INTO usuario (primernombre, primerapellido, segundoapellido, email, contrasena, telefono) 
+VALUES ('Juan', 'Alvarado','Vasquez', 'jucaralva@gmail.com', '321', '789456');
+
+INSERT INTO usuario (primernombre, primerapellido, segundoapellido, email, contrasena, telefono) 
+VALUES ('Jean', 'Hernandez','Velluti', 'jeanvellu@gmail.com', '456', '456123');
+
+INSERT INTO usuario (primernombre, primerapellido, segundoapellido, email, contrasena, telefono) 
+VALUES ('Jessica', 'Murillo','Rocha', 'jessro@gmail.com', '789', '123456');
+
+INSERT INTO usuario (primernombre, primerapellido, segundoapellido, email, contrasena, telefono)
+VALUES ('Ilani', 'Rocha','Arguello', 'ilada@gmail.com', '987', '123456');
+
+INSERT INTO usuario (primernombre, primerapellido, segundoapellido, email, contrasena, telefono) 
+VALUES ('Jimena', 'Estrada','Lopez', 'jimeestrada@gmail.com', '654', '69871');
+
+INSERT INTO usuario (primernombre, primerapellido, segundoapellido, email, contrasena, telefono, capitanid) 
+VALUES ('Cristiano', 'Dos Santos','Aveiro', 'cr7siuuuuu@gmail.com', '147', '123456', 2);
+
+INSERT INTO usuario (primernombre, primerapellido, segundoapellido, email, contrasena, telefono, capitanid) 
+VALUES ('Lionel', 'Messi','Cuccittini', 'liomessi@gmail.com', '258', '65789', 1);
+
+INSERT INTO usuario (primernombre, primerapellido, segundoapellido, email, contrasena, telefono) 
+VALUES ('Jose', 'Hernandez','Luna', 'joseLuna@gmail.com', '369', '42581');
+
+INSERT INTO usuario (primernombre, primerapellido, segundoapellido, email, contrasena, telefono) 
+VALUES ('Luis', 'Navarro','Murillo', 'luisnava@gmail.com', '963', '32596');
+
+INSERT INTO usuario (primernombre, primerapellido, segundoapellido, email, contrasena, telefono) 
+VALUES ('Randy', 'Perez','Brenes', 'randybre@gmail.com', '852', '75841');
+
+INSERT INTO usuario (primernombre, primerapellido, segundoapellido, email, contrasena, telefono) 
+VALUES ('Jose', 'Lopez','Varquero', 'jlopez@gmail.com', '741', '39856');
+
+--******************************
+--* Inserts para Tipo_Vehiculo *
+--******************************
+INSERT INTO tipo_vehiculo  VALUES ('Bote');
+INSERT INTO tipo_vehiculo  VALUES ('Jetski');
 
 
---JETSKI
-INSERT INTO JETSKI  VALUES (1, 'kawassaki 2013',3,20000, 2);
-INSERT INTO JETSKI  VALUES (2, 'kawassaki 2020',2,30000, 3);
-INSERT INTO JETSKI  VALUES (3, 'SEA-DOO-RXT 2017',1,50000, 1);
 
---alquiler
-INSERT INTO ALQUILER  VALUES (1, 6);
-INSERT INTO ALQUILER  VALUES (2, 7);
-INSERT INTO ALQUILER  VALUES (3, 8);
+--*************************
+--* Inserts para Vehiculo *
+--*************************
+INSERT INTO vehiculo(placa, descripcion, cantidadocupantes, precioalquiler, tipovehiculoid) 
+VALUES ('BCD-235', 'kawassaki 2013',2,20000, 2);
 
---factura
-INSERT INTO FACTURA  VALUES (1, 50000, 1,2);
-INSERT INTO FACTURA  VALUES (2, 80000, 2,2);
-INSERT INTO FACTURA  VALUES (3, 60000, 3,3);
+INSERT INTO vehiculo(placa, descripcion, cantidadocupantes, precioalquiler, tipovehiculoid)  
+VALUES ('ARG-264', 'kawassaki 2020',2,30000, 2);
 
---muestra Usuarios
-SELECT * FROM usuario; 
+INSERT INTO vehiculo(placa, descripcion, cantidadocupantes, precioalquiler, tipovehiculoid)
+VALUES ('TYK-754', 'SEA-DOO-RXT 2017',1,50000, 1);
 
---muestra jetskies
-SELECT jetskiid as ID,descripcion, cantidadocupadas as "Cantidad Ocupadas", precioalquiler as "Precio Alquiler", vehiculo_id as "Vehiculo ID" FROM jetski; 
+INSERT INTO vehiculo(placa, descripcion, cantidadocupantes, precioalquiler, tipovehiculoid)
+VALUES ('ZTY-886', 'SEA-DRW-MWA 2020',1,55000, 1);
 
---muestra  vehiuclo 
-SELECT * FROM vehiculo; 
 
---muestra  factura 
-SELECT facturaid as ID,montototal as "Monto Total", usuario_id as "Usuario", alquiler_id as "Alquiler ID" FROM factura; 
+--*************************
+--* Inserts para Alquiler *
+--*************************
 
+INSERT INTO alquiler (fechaalquiler, horainiciaalqui, horafinalalqui, usuario_id, placa) 
+VALUES (TO_DATE('07/17/2022', 'mm/dd/yyyy'), '06:14', '18:17', 4,'BCD-235');
+
+INSERT INTO ALQUILER (fechaalquiler, horainiciaalqui, horafinalalqui, usuario_id, placa) 
+VALUES (TO_DATE('08/18/2022', 'mm/dd/yyyy'), '08:07', '17:00', 7,'TYK-754');
+
+--********************************
+--* Inserts para Factura *
+--********************************
+INSERT INTO factura (fechafactura, montototal) 
+VALUES (TO_DATE('07/17/2022', 'mm/dd/yyyy'), 20000);
+
+INSERT INTO factura (fechafactura, montototal) 
+VALUES (TO_DATE('08/18/2022', 'mm/dd/yyyy'), 50000);
+
+--********************************
+--* Inserts para Detalle Factura *
+--********************************
+
+INSERT INTO detallefactura (alquilerid, facturaid) 
+VALUES (1,1);
+
+INSERT INTO detallefactura (alquilerid, facturaid)  
+VALUES (2,2);
