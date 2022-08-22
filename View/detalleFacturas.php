@@ -38,9 +38,13 @@
                 <table id="tUsuarios" class="table table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Alquiler ID</th>
-                            <th>Factura ID</th>
+                            <th>ID Factura</th>
+                            <th>ID Usuario</th>
+                            <th>Nombre</th>
+                            <th>Placa</th>
+                            <th>Descripción Vehiculo</th>
+                            <th>Tipo</th>
+                            <th>Precio Unitario</th>
                         </tr>
                     </thead>
                     <tbody>

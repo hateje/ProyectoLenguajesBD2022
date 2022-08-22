@@ -38,8 +38,12 @@
                 <table id="tUsuarios" class="table table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>Capitan ID</th>
-                            <th>Número de licencia</th>
+                            <th>Capitán ID</th>
+                            <th>Nombre Capitán</th>
+                            <th>Correo</th>
+                            <th>Contraseña</th>
+                            <th>Telefono</th>
+                            <th>Licencia</th>
                             <th>Fecha de Contratación</th>
                         </tr>
                     </thead>
