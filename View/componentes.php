@@ -16,9 +16,13 @@
                 <div class="sidebar-heading">
                 </div>
                 <div class="list-group list-group-flush">
+                    <a href="capitanes.php" class="list-group-item list-group-item-action bg-light">Capitanes</a>
                     <a href="Usuarios.php" class="list-group-item list-group-item-action bg-light">Usuarios</a>
-                    <a href="Vehiculos.php" class="list-group-item list-group-item-action bg-light">Vehiculos</a>
-                    
+                    <a href="tipoVehiculo.php" class="list-group-item list-group-item-action bg-light">Tipo de Vehiculos</a>
+                    <a href="vehiculo.php" class="list-group-item list-group-item-action bg-light">Vehiculos</a>
+                    <a href="alquileres.php" class="list-group-item list-group-item-action bg-light">Alquileres</a>
+                    <a href="facturas.php" class="list-group-item list-group-item-action bg-light">Facturas</a>
+                    <a href="detalleFacturas.php" class="list-group-item list-group-item-action bg-light">Detalle Facturas</a>
                 </div>
             </div>
         ';

@@ -91,6 +91,7 @@
         }
     }  
 
+/////// ORACLE
 
     function ConsultarUsuariosOracle()
     {   
@@ -111,6 +112,89 @@
     function ConsultarTipoVehiculoOracle()
     {   
         $lista = ConsultarTipoVehiculoOracleModel();
+        
+        while ($fila = oci_fetch_array($lista, OCI_ASSOC+OCI_RETURN_NULLS)) {
+            print "<tr>\n";
+            foreach ($fila as $elemento) {
+                print "    <td>" . ($elemento !== null ? htmlentities($elemento, ENT_QUOTES) : "") . "</td>\n";
+            }
+            print "</tr>\n";
+        }
+        
+    
+        oci_free_statement($lista);
+    } 
+
+
+    function ConsultarCapitanesOracle()
+    {   
+        $lista = ConsultarCapitanesOracleModel();
+        
+        while ($fila = oci_fetch_array($lista, OCI_ASSOC+OCI_RETURN_NULLS)) {
+            print "<tr>\n";
+            foreach ($fila as $elemento) {
+                print "    <td>" . ($elemento !== null ? htmlentities($elemento, ENT_QUOTES) : "") . "</td>\n";
+            }
+            print "</tr>\n";
+        }
+        
+    
+        oci_free_statement($lista);
+    } 
+
+
+    function ConsultarVehiculoOracle()
+    {   
+        $lista = ConsultarVehiculoOracleModel();
+        
+        while ($fila = oci_fetch_array($lista, OCI_ASSOC+OCI_RETURN_NULLS)) {
+            print "<tr>\n";
+            foreach ($fila as $elemento) {
+                print "    <td>" . ($elemento !== null ? htmlentities($elemento, ENT_QUOTES) : "") . "</td>\n";
+            }
+            print "</tr>\n";
+        }
+        
+    
+        oci_free_statement($lista);
+    } 
+
+    
+    function ConsultarAlquileresOracle()
+    {   
+        $lista = ConsultarAlquileresOracleModel();
+        
+        while ($fila = oci_fetch_array($lista, OCI_ASSOC+OCI_RETURN_NULLS)) {
+            print "<tr>\n";
+            foreach ($fila as $elemento) {
+                print "    <td>" . ($elemento !== null ? htmlentities($elemento, ENT_QUOTES) : "") . "</td>\n";
+            }
+            print "</tr>\n";
+        }
+        
+    
+        oci_free_statement($lista);
+    } 
+
+    function ConsultarFacturasOracle()
+    {   
+        $lista = ConsultarFacturasOracleModel();
+        
+        while ($fila = oci_fetch_array($lista, OCI_ASSOC+OCI_RETURN_NULLS)) {
+            print "<tr>\n";
+            foreach ($fila as $elemento) {
+                print "    <td>" . ($elemento !== null ? htmlentities($elemento, ENT_QUOTES) : "") . "</td>\n";
+            }
+            print "</tr>\n";
+        }
+        
+    
+        oci_free_statement($lista);
+    } 
+
+    function ConsultarDetalleFacturasOracle()
+    {   
+        $lista = ConsultarDetalleFacturasOracleModel();
         
         while ($fila = oci_fetch_array($lista, OCI_ASSOC+OCI_RETURN_NULLS)) {
             print "<tr>\n";

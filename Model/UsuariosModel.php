@@ -83,5 +83,78 @@
        return $mi_cursor;
    }
    
+   function ConsultarCapitanesOracleModel()
+   {    
+       $instancia = AbrirBaseDatos();
+       $mi_cursor = oci_new_cursor($instancia);
+       $lista = oci_parse($instancia, 'BEGIN getCapitanes(:cursbv); END;');
+       oci_bind_by_name($lista, ":cursbv", $mi_cursor, -1, OCI_B_CURSOR);
+       
+       oci_execute($lista);
+       oci_execute($mi_cursor);
+       CerrarBaseDatos($instancia);
+
+       return $mi_cursor;
+   }
+
+   
+   function ConsultarVehiculoOracleModel()
+   {    
+       $instancia = AbrirBaseDatos();
+       $mi_cursor = oci_new_cursor($instancia);
+       $lista = oci_parse($instancia, 'BEGIN getVehiculos(:cursbv); END;');
+       oci_bind_by_name($lista, ":cursbv", $mi_cursor, -1, OCI_B_CURSOR);
+       
+       oci_execute($lista);
+       oci_execute($mi_cursor);
+       CerrarBaseDatos($instancia);
+
+       return $mi_cursor;
+   }
+
+   
+   function ConsultarAlquileresOracleModel()
+   {    
+       $instancia = AbrirBaseDatos();
+       $mi_cursor = oci_new_cursor($instancia);
+       $lista = oci_parse($instancia, 'BEGIN getAlquileres(:cursbv); END;');
+       oci_bind_by_name($lista, ":cursbv", $mi_cursor, -1, OCI_B_CURSOR);
+       
+       oci_execute($lista);
+       oci_execute($mi_cursor);
+       CerrarBaseDatos($instancia);
+
+       return $mi_cursor;
+   }
+
+
+   function ConsultarFacturasOracleModel()
+   {    
+       $instancia = AbrirBaseDatos();
+       $mi_cursor = oci_new_cursor($instancia);
+       $lista = oci_parse($instancia, 'BEGIN getFacturas(:cursbv); END;');
+       oci_bind_by_name($lista, ":cursbv", $mi_cursor, -1, OCI_B_CURSOR);
+       
+       oci_execute($lista);
+       oci_execute($mi_cursor);
+       CerrarBaseDatos($instancia);
+
+       return $mi_cursor;
+   }
+
+   function ConsultarDetalleFacturasOracleModel()
+   {    
+       $instancia = AbrirBaseDatos();
+       $mi_cursor = oci_new_cursor($instancia);
+       $lista = oci_parse($instancia, 'BEGIN getdetalleFacturas(:cursbv); END;');
+       oci_bind_by_name($lista, ":cursbv", $mi_cursor, -1, OCI_B_CURSOR);
+       
+       oci_execute($lista);
+       oci_execute($mi_cursor);
+       CerrarBaseDatos($instancia);
+
+       return $mi_cursor;
+   }
+
 
 ?>
