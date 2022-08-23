@@ -306,3 +306,69 @@ Create or replace procedure insertVehiculo (pPlaca varchar2,pDescripcion varchar
         VALUES (pPlaca, pDescripcion,pPocupantes,pPrecioAlquiler, pTipoVehiculo);
     end;
 /
+--Función para calcular el IVA
+CREATE OR REPLACE FUNCTION IVA (pPRECIO NUMBER)
+RETURN DECIMAL
+IS
+   TOTAL DECIMAL;
+BEGIN
+       TOTAL := pPRECIO+ (pPRECIO * 0.13);
+       RETURN TOTAL;
+END;
+--SELECT precioalquiler, IVA(precioalquiler) AS "IMPUESTO" FROM vehiculo;
+/
+--Funcion para saber el vehículo más alquilado
+SELECT STATS_MODE(placa) FROM alquiler;
+/
+--Función para calcular el IVA
+CREATE OR REPLACE FUNCTION IVA (pPRECIO NUMBER)
+RETURN DECIMAL
+IS
+   TOTAL DECIMAL;
+BEGIN
+       TOTAL := pPRECIO+ (pPRECIO * 0.13);
+       RETURN TOTAL;
+END;
+--SELECT precioalquiler, IVA(precioalquiler) AS "IMPUESTO" FROM vehiculo;
+/
+--Funcion para saber el vehículo más alquilado
+CREATE OR REPLACE PROCEDURE vehiculomasalquilado (mi_cursor OUT SYS_REFCURSOR)
+AS
+    BEGIN
+      OPEN mi_cursor FOR
+         SELECT STATS_MODE(placa) FROM alquiler;
+    END;
+/
+CREATE OR REPLACE FUNCTION IMPRIMEXML
+  RETURN SYS_REFCURSOR
+    IS  
+      MI_CURSOR SYS_REFCURSOR;
+    BEGIN
+      OPEN MI_CURSOR FOR
+                     select XMLELEMENT ("FACTURA",
+            XMLELEMENT ("ID",detallefacturaid),
+            XMLELEMENT("USUARIOID", usuario.usuarioid),
+            XMLELEMENT ("NOMBRE",primernombre ||' '|| primerapellido) ,
+            XMLELEMENT ("PLACA",vehiculo.placa),
+            XMLELEMENT ("DESCRIPCION",descripcion),
+            XMLELEMENT ("TIPO",tipo),
+            XMLELEMENT ("PRECIO",precioalquiler))
+from detallefactura
+            inner join alquiler
+            on detallefactura.alquilerid = alquiler.alquilerid
+                inner join usuario
+                on alquiler.usuario_id = usuario.usuarioid
+                    inner join vehiculo
+                    on alquiler.placa = vehiculo.placa
+                        inner join tipo_vehiculo
+                        on vehiculo.tipovehiculoid = tipo_vehiculo.tipovehiculoid;
+        RETURN MI_CURSOR; 
+    END;
+   
+  --IMPRIMIR TEXTO EN CONSOLA
+/*DECLARE
+       REGISTROS SYS_REFCURSOR;
+BEGIN
+       REGISTROS := IMPRIMEXML;
+       DBMS_SQL.return_result(REGISTROS);
+END;*/
