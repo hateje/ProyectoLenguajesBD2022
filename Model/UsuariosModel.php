@@ -156,5 +156,20 @@
        return $mi_cursor;
    }
 
+   function RegistrarTipoVehiculoModel($tipo)
+    {    
+        $instancia = AbrirBaseDatos();
+        $lista = oci_parse($instancia, "BEGIN insertTipoVehiculo('$tipo'); END;");
+        oci_execute($lista);
+        CerrarBaseDatos($instancia);
+    }
 
+    
+    function RegistrarVehiculoModel($Placa, $Descripcion, $Ocupantes, $PrecioAlquiler, $TipoVehiculo)
+    {    
+        $instancia = AbrirBaseDatos();
+        $lista = oci_parse($instancia, "BEGIN insertVehiculo('$Placa','$Descripcion','$Ocupantes','$PrecioAlquiler','$TipoVehiculo'); END;");
+        oci_execute($lista);
+        CerrarBaseDatos($instancia);
+    }
 ?>

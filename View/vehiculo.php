@@ -33,6 +33,7 @@
 
 
                 <br />
+                <h2>Vehículos</h2>
                 <br />
             <div class="table-responsive">
                 <table id="tUsuarios" class="table table-hover table-bordered">
@@ -49,6 +50,7 @@
                         <?php ConsultarVehiculoOracle(); ?>
                     </tbody>
                 </table>
+                <a href="agregarVehiculo.php" class="btn btn-info">Agregar Vehículo</a>
             </div>
 </div>
         </div>

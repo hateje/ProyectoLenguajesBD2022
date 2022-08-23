@@ -33,6 +33,7 @@
 
 
                 <br />
+                <h2>Detalle Facturas</h2>
                 <br />
             <div class="table-responsive">
                 <table id="tUsuarios" class="table table-hover table-bordered">

@@ -291,3 +291,18 @@ Create or replace procedure getTipoVehiculo (mi_cursor out SYS_REFCURSOR)
             select * from tipo_vehiculo;
     end;
 /
+--Insertar un tipovehiculo
+Create or replace procedure insertTipoVehiculo (pTipo in varchar2)
+ as
+    begin
+        INSERT INTO tipo_vehiculo(tipovehiculoid, tipo)  VALUES (tipo_vehiculo_sec.nextval, pTipo);
+    end;
+/
+--Insertar un Vehiculo
+Create or replace procedure insertVehiculo (pPlaca varchar2,pDescripcion varchar2,pPocupantes number,pPrecioAlquiler number,pTipoVehiculo number)
+ as
+    begin
+        INSERT INTO vehiculo(placa, descripcion, cantidadocupantes, precioalquiler, tipovehiculoid)
+        VALUES (pPlaca, pDescripcion,pPocupantes,pPrecioAlquiler, pTipoVehiculo);
+    end;
+/

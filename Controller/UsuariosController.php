@@ -3,16 +3,24 @@
     include_once "../Model/UsuariosModel.php";
 
     /*LLAMADOS*/
-    if(isset($_POST['btnRegistrar']))
+    if(isset($_POST['btnAgregarTipoVehiculo']))
     {
-        $cedula = $_POST["txtCedula"]; 
-        $Nombre = $_POST["txtNombre"];  
-        $Correo = $_POST["txtCorreo"]; 
-        $Contrasenna = $_POST["txtContrasenna"]; 
-        $Rol = $_POST["txtRol"]; 
+        $tipo = $_POST["txtTipo"]; 
+        RegistrarTipoVehiculoModel($tipo);
+
+        header("Location: ../View/tipoVehiculo.php");
+    }
+
+    if(isset($_POST['btnAgregarVehiculo']))
+    {
+        $Placa = $_POST["txtPlaca"];
+        $Descripcion = $_POST["txtDescripcion"];
+        $Ocupantes = $_POST["txtOcupantes"];
+        $PrecioAlquiler = $_POST["txtPrecioAlquiler"];
+        $TipoVehiculo = $_POST["txtTipoVehiculo"];
+        RegistrarVehiculoModel($Placa, $Descripcion, $Ocupantes, $PrecioAlquiler, $TipoVehiculo);
         
-        RegistrarUsuariosModel($cedula, $Nombre, $Correo, $Contrasenna, $Rol);
-        header("Location: ../View/MantUsuarios.php");
+        header("Location: ../View/vehiculo.php");
     }
 
 
