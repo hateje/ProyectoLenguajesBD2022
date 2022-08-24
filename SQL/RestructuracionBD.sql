@@ -249,7 +249,7 @@ Create or replace procedure getdetalleFacturasLegibles (mi_cursor out SYS_REFCUR
  as
     begin
         open mi_cursor for
-            select detallefacturaid, usuario.usuarioid, primernombre ||' '|| primerapellido as nombrecompleto,
+            select detallefacturaid, facturaid, usuario.usuarioid, primernombre ||' '|| primerapellido as nombrecompleto,
             vehiculo.placa,descripcion,tipo,precioalquiler  from detallefactura
             inner join alquiler
             on detallefactura.alquilerid = alquiler.alquilerid
@@ -372,3 +372,10 @@ BEGIN
        REGISTROS := IMPRIMEXML;
        DBMS_SQL.return_result(REGISTROS);
 END;*/
+
+CREATE OR REPLACE PROCEDURE getAllVehiculosAlquilados (pFechaFinal varchar2,pHoraFinal varchar2)
+AS
+    BEGIN
+      select * from alquiler where ;
+    END;
+/

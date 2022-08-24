@@ -39,7 +39,8 @@
                 <table id="tUsuarios" class="table table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>ID Factura</th>
+                            <th>DETALLEFACTURAID</th>
+                            <th>FACTURAID</th>
                             <th>ID Usuario</th>
                             <th>Nombre</th>
                             <th>Placa</th>
