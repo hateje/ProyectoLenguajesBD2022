@@ -119,4 +119,12 @@
         oci_execute($lista);
         CerrarBaseDatos($instancia);
     }
+
+    function ConsultarVehiculosAlquiladosOracleModel($FechaFinal, $HoraFinal)
+    {    
+        $instancia = AbrirBaseDatos();
+        $lista = oci_parse($instancia, "BEGIN getAllVehiculosAlquilados($FechaFinal, $HoraFinal); END;");
+        oci_execute($lista);
+        CerrarBaseDatos($instancia);
+    }
 ?>

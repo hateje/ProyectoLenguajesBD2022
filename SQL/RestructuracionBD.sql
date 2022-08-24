@@ -376,7 +376,14 @@ END;*/
 CREATE OR REPLACE PROCEDURE getAllVehiculosAlquilados (pFechaFinal varchar2,pHoraFinal varchar2)
 AS
     BEGIN
-      select * from alquiler where ;
+      select alquilerid, primernombre ||' '|| primerapellido as nombrecompleto,vehiculo.placa as placa,
+            fechainicio as "fechaInicio",to_char(fechainicio,'HH24:MI:SS') as "horaInicio",
+            fechafin as "fechaFin",to_char(fechafin,'HH24:MI:SS') as "horaFin" from alquiler
+                inner join usuario
+                on alquiler.usuario_id = usuario.usuarioid
+                 inner join vehiculo
+                 on alquiler.placa = vehiculo.placa
+            where alquiler.fechafin >  TO_DATE(pFechaFinal||' '||pHoraFinal, 'DD/MM/YYYY HH24:MI:SS') ;
     END;
 /
 /*FALTA DEPURARLO:*/
