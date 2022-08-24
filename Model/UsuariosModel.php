@@ -2,59 +2,6 @@
 
     include_once "Conexion.php";
 
-    function ConsultarUsuariosModel()
-    {    
-        $instancia = AbrirBaseDatos();
-        $listaUsuarios = $instancia -> query("CALL ConsultarUsuarios();");
-        CerrarBaseDatos($instancia);
-        return $listaUsuarios;
-    }
-
-
-    function ConsultarUsuarioModel($Cedula)
-    {    
-        $instancia = AbrirBaseDatos();
-        $Usuario = $instancia -> query("CALL ConsultarUsuario('$Cedula');");
-        CerrarBaseDatos($instancia);
-        return $Usuario;
-    }
-
-
-    function ConsultarRolesModel()
-    {    
-        $instancia = AbrirBaseDatos();
-        $listaRoles = $instancia -> query("CALL ConsultarRoles();");
-        CerrarBaseDatos($instancia);
-        return $listaRoles;
-    }
-
-
-    function RegistrarUsuariosModel($cedula, $Nombre, $Correo, $Contrasenna, $Rol)
-    {    
-        $instancia = AbrirBaseDatos();
-        $instancia -> query("CALL RegistrarUsuarios('$cedula', '$Nombre', '$Correo', '$Contrasenna', $Rol);");
-        CerrarBaseDatos($instancia);
-    }
-
-
-    function ActualizarUsuariosModel($cedula, $Nombre, $Correo, $Contrasenna, $Rol)
-    {    
-        $instancia = AbrirBaseDatos();
-        $instancia -> query("CALL ActualizarUsuario('$cedula', '$Nombre', '$Correo', '$Contrasenna', $Rol);");
-        CerrarBaseDatos($instancia);
-    }
-
-
-    function EliminarUsuariosModel($cedula)
-    {    
-        $instancia = AbrirBaseDatos();
-        $instancia -> query("CALL EliminarUsuario('$cedula');");
-        CerrarBaseDatos($instancia);
-    }
-
-   //*************************************************** */ 
-
-
    function ConsultarUsuariosOracleModel()
    {    
        $instancia = AbrirBaseDatos();
