@@ -23,6 +23,16 @@
         header("Location: ../View/vehiculo.php");
     }
 
+    if(isset($_POST['btnConsultarXML']))
+    {
+        $lista = ConsultarXMLOracleModel();
+        
+
+        header("Location: ../View/detalleFacturas.php");
+    }
+
+    
+
     /*ORACLE*/
     function ConsultarUsuariosOracle()
     {   
@@ -126,6 +136,23 @@
     function ConsultarDetalleFacturasOracle()
     {   
         $lista = ConsultarDetalleFacturasOracleModel();
+        
+        while ($fila = oci_fetch_array($lista, OCI_ASSOC+OCI_RETURN_NULLS)) {
+            print "<tr>\n";
+            foreach ($fila as $elemento) {
+                print "    <td>" . ($elemento !== null ? htmlentities($elemento, ENT_QUOTES) : "") . "</td>\n";
+            }
+            print "</tr>\n";
+        }
+        
+    
+        oci_free_statement($lista);
+    } 
+
+    function  ConsultarXMLOracle()
+    {   
+        
+        $lista = ConsultarXMLOracleModel();
         
         while ($fila = oci_fetch_array($lista, OCI_ASSOC+OCI_RETURN_NULLS)) {
             print "<tr>\n";

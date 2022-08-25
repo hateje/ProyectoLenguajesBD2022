@@ -54,6 +54,11 @@
                     </tbody>
                 </table>
             </div>
+            
+ 
+
+            <label>XMLs</label>
+            <textarea id="txtConsultarXML"><?php ConsultarXMLOracle(); ?></textarea>
 </div>
         </div>
     </div>
@@ -61,6 +66,8 @@
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../js/simple-sidebar.js"></script>
+
+
 
 </body>
 

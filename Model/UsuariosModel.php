@@ -127,4 +127,19 @@
         oci_execute($lista);
         CerrarBaseDatos($instancia);
     }
+
+    function ConsultarXMLOracleModel()
+    {    
+        $instancia = AbrirBaseDatos();
+        $mi_cursor = oci_new_cursor($instancia);
+        $lista = oci_parse($instancia, "BEGIN :mi_cursor := IMPRIMEXML; END;");
+        oci_bind_by_name($lista, ":mi_cursor", $mi_cursor, -1, OCI_B_CURSOR); 
+        oci_execute($lista);
+        oci_execute($mi_cursor);
+        CerrarBaseDatos($instancia);
+
+        return $mi_cursor;
+    }
+
+
 ?>
