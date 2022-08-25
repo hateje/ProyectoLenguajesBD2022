@@ -58,7 +58,7 @@
  
 
             <label>XMLs</label>
-            <textarea id="txtConsultarXML"><?php ConsultarXMLOracle(); ?></textarea>
+            <?php ConsultarXMLOracle(); ?>
 </div>
         </div>
     </div>

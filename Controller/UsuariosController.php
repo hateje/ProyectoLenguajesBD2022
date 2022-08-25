@@ -153,14 +153,15 @@
     {   
         
         $lista = ConsultarXMLOracleModel();
+        echo $lista;
         
-        while ($fila = oci_fetch_array($lista, OCI_ASSOC+OCI_RETURN_NULLS)) {
-            print "<tr>\n";
+        /*while ($fila = oci_fetch_array($lista, OCI_ASSOC+OCI_RETURN_NULLS)) {
+            print "<textarea>";
             foreach ($fila as $elemento) {
-                print "    <td>" . ($elemento !== null ? htmlentities($elemento, ENT_QUOTES) : "") . "</td>\n";
+                print ($elemento !== null ? htmlentities($elemento, ENT_QUOTES) : "") . "\n";
             }
-            print "</tr>\n";
-        }
+            print "</textarea>";
+        }*/
         
     
         oci_free_statement($lista);

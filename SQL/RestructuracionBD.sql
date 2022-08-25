@@ -306,7 +306,7 @@ Create or replace procedure insertVehiculo (pPlaca varchar2,pDescripcion varchar
         VALUES (pPlaca, pDescripcion,pPocupantes,pPrecioAlquiler, pTipoVehiculo);
     end;
 /
---Función para calcular el IVA
+--Funci�n para calcular el IVA
 CREATE OR REPLACE FUNCTION IVA (pPRECIO NUMBER)
 RETURN DECIMAL
 IS
@@ -320,18 +320,7 @@ END;
 --Funcion para saber el vehículo más alquilado
 SELECT STATS_MODE(placa) FROM alquiler;
 /
---Función para calcular el IVA
-CREATE OR REPLACE FUNCTION IVA (pPRECIO NUMBER)
-RETURN DECIMAL
-IS
-   TOTAL DECIMAL;
-BEGIN
-       TOTAL := pPRECIO+ (pPRECIO * 0.13);
-       RETURN TOTAL;
-END;
---SELECT precioalquiler, IVA(precioalquiler) AS "IMPUESTO" FROM vehiculo;
-/
---Funcion para saber el vehículo más alquilado
+--Funcion para saber el veh�culo m�s alquilado
 CREATE OR REPLACE PROCEDURE vehiculomasalquilado (mi_cursor OUT SYS_REFCURSOR)
 AS
     BEGIN
@@ -353,7 +342,7 @@ CREATE OR REPLACE FUNCTION IMPRIMEXML
             XMLELEMENT ("DESCRIPCION",descripcion),
             XMLELEMENT ("TIPO",tipo),
             XMLELEMENT ("PRECIO",precioalquiler))
-from detallefactura
+            from detallefactura
             inner join alquiler
             on detallefactura.alquilerid = alquiler.alquilerid
                 inner join usuario
@@ -405,7 +394,7 @@ FOR EACH ROW
 DECLARE
     BEGIN
         UPDATE TABLE FACTURA
-         SET MONTOTOTAL = MONTOTOTAL+PPRECIOALQUILER WHERE FACTURAID= 4;
+        SET MONTOTOTAL = MONTOTOTAL+PPRECIOALQUILER WHERE FACTURAID= 4;
     END;
         
         
@@ -413,4 +402,34 @@ DECLARE
  SELECT VEHICULO.PRECIOALQUILER  FROM ALQUILER
       INNER JOIN VEHICULO
         ON ALQUILER.PLACA = VEHICULO.PLACA
-          WHERE VEHICULO.PLACA = 'BCD-235';*/
+          WHERE VEHICULO.PLACA = 'BCD-235';
+          
+create or replace procedure alctualizamontototal (palquilerid number,pfacturaid number)
+as 
+    precioactual number; 
+    preciodelalquiler number; 
+    precionuevo number;
+begin
+ 
+    select montototal into precioactual from factura where facturaid = pfacturaid;
+    select precioalquiler into preciodelalquiler from alquiler 
+        inner join vehiculo
+        on alquiler.placa = vehiculo.placa
+    where alquiler.alquilerid = palquilerid;
+    precionuevo := precioactual+preciodelalquiler;
+    update factura set montototal = precionuevo where facturaid = pfacturaid;
+end;
+ 
+create or replace  trigger tgr_actualizamontototal
+after insert on detallefactura
+for each row
+begin
+call alctualizamontototal(palquilerid number,pfacturaid number);
+end;
+
+          
+          
+*/
+          
+          
+          
